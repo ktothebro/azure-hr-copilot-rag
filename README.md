@@ -28,6 +28,17 @@ This **public-safe replica** uses synthetic HR documents to demonstrate the same
 - **Power Automate** – low-code orchestration
 - **Azure Function App** – PDF ingestion & page-splitting
 - **SharePoint** – HR document source
+---
+
+## 📄 Project Notes
+This function set was originally implemented at **Affirma Consulting** for an HR department.
+
+- **Delete Function (`delete-pdf-pages`)**: Fully tested and working, but **not integrated into the Power Automate flow** because the HR department’s process did not involve automated deletion of documents.  
+- **Split Function (`split-pdf`)**: Supports replacement by automatically deleting any existing page blobs before uploading new ones — ensuring storage stays clean.
+
+This design allows you to:
+- Run `delete-pdf-pages` manually when needed (via HTTP POST)
+- Keep the Power Automate workflow simpler for teams that do not need automated deletion
 
 ---
 
