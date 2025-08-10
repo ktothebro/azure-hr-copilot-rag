@@ -14,6 +14,7 @@ Designed for **Retrieval-Augmented Generation (RAG)** pipelines where fine-grain
 - **Two endpoints**:
   1. **`split-pdf`** → Split PDF into pages & upload to Blob Storage
   2. **`delete-pdf-pages`** → Remove all page files for a given document
+     **Note**: `delete-pdf-pages` is available but not used in the default Power Automate workflow for this project.
 - **Blob Storage integration**
 - **Power Automate friendly**
 - **Modular** for use in larger AI search/chat pipelines
@@ -29,4 +30,4 @@ functions/
     ├── requirements.txt    # Python dependencies
     └── README.md           # (Optional) Function-specific doc
 
-**Note**: `delete-pdf-pages` is available but not used in the default Power Automate workflow for this project.
+
