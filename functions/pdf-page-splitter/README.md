@@ -28,3 +28,5 @@ functions/
     ├── function.json       # Trigger & binding configuration
     ├── requirements.txt    # Python dependencies
     └── README.md           # (Optional) Function-specific doc
+
+**Note**: `delete-pdf-pages` is available but not used in the default Power Automate workflow for this project.
