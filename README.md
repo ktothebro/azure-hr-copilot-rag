@@ -1,5 +1,5 @@
 # UNG Handbook Chatbot – Azure RAG Demo
-[Live Demo]([https://yourusername.github.io/your-repo-name/](https://ktothebro.github.io/hr-chatbot-demo-azure-RAG/))
+[Live Demo]([https://yourusername.github.io/your-repo-name/](https://ktothebro.github.io/hr-chatbot-demo-azure-RAG/])
 ## 📌 Overview
 This project demonstrates a **Retrieval-Augmented Generation (RAG) chatbot** using **Azure AI services**.  
 It answers questions based on the **University of North Georgia (UNG) Student Handbook 2024-2025**.
