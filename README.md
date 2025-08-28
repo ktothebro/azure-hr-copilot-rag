@@ -1,10 +1,10 @@
-# Azure HR Copilot – RAG Architecture
-
+# UNG Handbook Chatbot – Azure RAG Demo
+[Live Demo]([https://yourusername.github.io/your-repo-name/](https://ktothebro.github.io/hr-chatbot-demo-azure-RAG/)
 ## 📌 Overview
-**Azure HR Copilot** is an AI-powered chatbot that provides instant, grounded answers to HR policy and procedure questions.  
-It uses a **Retrieval-Augmented Generation (RAG)** architecture built on Azure AI services, with secure, enterprise-ready integration and low-code orchestration.
+This project demonstrates a **Retrieval-Augmented Generation (RAG) chatbot** using **Azure AI services**.  
+It answers questions based on the **University of North Georgia (UNG) Student Handbook 2024-2025**.
 
-This **public-safe replica** uses synthetic HR documents to demonstrate the same architecture and workflow used in production.
+This **public-safe demo** replicates the architecture and workflow used in enterprise HR projects but uses only **synthetic or public data**, so no confidential HR information is exposed.
 
 ---
 
@@ -12,46 +12,47 @@ This **public-safe replica** uses synthetic HR documents to demonstrate the same
 ![Architecture Diagram](docs/architecture.png)
 
 **Workflow:**
-1. **Power Automate Flow** detects new HR documents in SharePoint.
-2. Documents are sent to **Azure Blob Storage**.
-3. **Azure Function App** splits PDFs into **page-level documents** for cost-efficient semantic search.
-4. **Azure AI Search** indexes each page for precise retrieval.
-5. **Azure OpenAI Service** (GPT-3.5/4 Turbo) uses RAG to ground answers in indexed content.
-6. Responses are delivered to users via **Power Automate** and **Copilot Studio**.
+1. **GitHub Pages frontend** collects user questions.
+2. Requests are sent to a **Power Automate HTTP Trigger**.
+3. (Optional) **Azure Function App** can preprocess text or split documents into pages.
+4. **Azure AI Search** indexes handbook pages for semantic retrieval.
+5. **Azure OpenAI Service** (GPT-3.5/4) generates answers grounded in the indexed content.
+6. Responses are returned to the frontend via **HTTP Response**.
 
 ---
 
 ## ⚙️ Tech Stack
-- **Azure Blob Storage** – document storage
-- **Azure AI Search** – indexing & semantic retrieval
-- **Azure OpenAI Service** – GPT-3.5/4 Turbo for generative responses
-- **Power Automate** – low-code orchestration
-- **Azure Function App** – PDF ingestion & page-splitting
-- **SharePoint** – HR document source
+- **GitHub Pages** – demo frontend hosting  
+- **HTML/JS** – chat interface  
+- **Power Automate** – orchestrates HTTP requests  
+- **Azure AI Search** – semantic indexing of handbook pages  
+- **Azure OpenAI Service** – GPT-3.5/4 for RAG-based responses  
+- **Azure Function App** – optional document/page preprocessing  
+
 ---
 
 ## 📄 Project Notes
-This function set was originally implemented at **Affirma Consulting** for an HR department.
+The original HR Copilot project at **Affirma Consulting** included:
 
-- **Delete Function (`delete-pdf-pages`)**: Fully tested and working, but **not integrated into the Power Automate flow** because the HR department’s process did not involve automated deletion of documents.  
-- **Split Function (`split-pdf`)**: Supports replacement by automatically deleting any existing page blobs before uploading new ones — ensuring storage stays clean.
+- **Delete Function (`delete-pdf-pages`)**: Tested, works, but not integrated into the flow; useful for manual cleanup.  
+- **Split Function (`split-pdf`)**: Supports replacement by deleting old page blobs before uploading new ones.
 
-This design allows you to:
-- Run `delete-pdf-pages` manually when needed (via HTTP POST)
-- Keep the Power Automate workflow simpler for teams that do not need automated deletion
+For this **UNG demo**:
+
+- All documents are public, so **manual deletion is not required**.  
+- The HTTP-triggered flow is configured for demo-safe queries.  
+- You can simulate queries and responses using **sample handbook content**.
 
 ---
 
 ## 🚀 Setup & Installation
 
 ### Prerequisites
-- Azure subscription
-- Azure OpenAI resource with GPT-3.5/4 Turbo deployment
-- Azure AI Search resource
-- Azure Blob Storage container
-- Power Automate environment
+- GitHub account
+- GitHub Pages enabled for the repository
+- Optional: Azure subscription to replicate the full RAG workflow
 
 ### 1. Clone the Repo
 ```bash
-git clone https://github.com/yourusername/azure-hr-copilot-rag.git
-cd azure-hr-copilot-rag
+git clone https://github.com/yourusername/ung-handbook-chatbot.git
+cd ung-handbook-chatbot
